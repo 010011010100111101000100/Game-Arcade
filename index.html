@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Unblocked Arcade</title>
+    <style>
+        /* Modern Dark Theme Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation Layout */
+        nav {
+            width: 280px;
+            background-color: #1f2833;
+            display: flex;
+            flex-direction: column;
+            border-right: 3px solid #45f3ff;
+            padding: 15px;
+        }
+        
+        .logo-area {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2f3944;
+            margin-bottom: 15px;
+        }
+        nav h1 {
+            font-size: 1.3rem;
+            color: #45f3ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(69, 243, 255, 0.3);
+        }
+        
+        /* Scrollable Game Menu Container */
+        .menu-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        /* Custom scrollbar styling for the menu */
+        .menu-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .menu-scroll::-webkit-scrollbar-thumb {
+            background-color: #45f3ff;
+            border-radius: 4px;
+        }
+        
+        .game-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        /* Individual Game Selection Buttons */
+        .game-btn {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #0b0c10;
+            border: 1px solid #2f3944;
+            border-radius: 8px;
+            color: #c5c6c7;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .game-btn:hover {
+            background-color: #15202b;
+            color: #45f3ff;
+            border-color: #45f3ff;
+            transform: scale(1.02);
+        }
+        .game-btn.active {
+            background-color: #45f3ff;
+            color: #0b0c10;
+            border-color: #45f3ff;
+            font-weight: bold;
+            box-shadow: 0 0 12px rgba(69, 243, 255, 0.4);
+        }
+
+        /* Full Window Frame Display Area */
+        main {
+            flex: 1;
+            background-color: #000000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-viewport {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav aria-label="Arcade Sidebar Selection">
+        <div class="logo-area">
+            <h1>GitHub Arcade</h1>
+        </div>
+        
+        <div class="menu-scroll">
+            <ul class="game-menu">
+                <li><button class="game-btn active" onclick="loadGame('https://play.pacman.com/', this)">👾 Classic Pac-Man</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://tetris.com/play-tetris', this)">🧱 Tetris Official</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/space-invaders/index.html', this)">🚀 Space Invaders</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/asteroids/index.html', this)">🪨 Asteroids</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/pong/index.html', this)">🏓 Retro Pong</button></li>
+                
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/slope/index.html', this)">🟢 Slope 3D</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/cookie-clicker/index.html', this)">🍪 Cookie Clicker</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/crossy-road/index.html', this)">🐔 Crossy Road</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/doodle-jump/index.html', this)">彈 Doodle Jump</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/flappy-bird/index.html', this)">🐦 Original Flappy Bird</button></li>
+                
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/2048/index.html', this)">🔢 2048 Number Grid</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/0hh1/index.html', this)">🔴 0h h1 (Logic Tiles)</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/hextris/index.html', this)">🔷 Hextris Speed Match</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/sudoku/index.html', this)">✏️ Daily Sudoku</button></li>
+                
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/cluster-rush/index.html', this)">🚚 Cluster Rush</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/getaway-shootout/index.html', this)">🔫 Getaway Shootout</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/rooftop-snipers/index.html', this)">🏙️ Rooftop Snipers</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/stickman-hook/index.html', this)">🪝 Stickman Hook</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/retro-bowl/index.html', this)">🏈 Retro Bowl Gridiron</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/drive-mad/index.html', this)">🚗 Drive Mad Physics</button></li>
+                <li><button class="game-btn" onclick="loadGame('https://3kh0-assets.github.io/ext-assets/basket-random/index.html', this)">🏀 Basket Random</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <iframe 
+            id="arcade-screen" 
+            class="game-viewport" 
+            src="https://play.pacman.com/" 
+            allow="gamepad; fullscreen; autoplay; keyboard-map"
+            scrolling="no">
+        </iframe>
+    </main>
+
+    <script>
+        function loadGame(url, button) {
+            // Update iframe destination targeting the selected game link 
+            document.getElementById('arcade-screen').src = url;
+            
+            // Re-assign navigation menu element active states
+            const buttons = document.querySelectorAll('.game-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Set keyboard focus directly onto the game window automatically
+            document.getElementById('arcade-screen').focus();
+        }
+    </script>
+
+</body>
+</html>
